@@ -1,0 +1,9 @@
+insert into category (description) values ('continental');
+insert into category (description) values ('american');
+insert into category (description) values ('chinese');
+insert into category (description) values ('indian');
+insert into unit_of_measure (description) values ('teaspoon');
+insert into unit_of_measure (description) values ('tablespoon');
+insert into unit_of_measure (description) values ('cup');
+insert into unit_of_measure (description) values ('pinch');
+insert into unit_of_measure (description) values ('ounce');
