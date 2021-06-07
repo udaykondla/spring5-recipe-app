@@ -19,6 +19,16 @@ public class Ingredient {
     @OneToOne
     private UnitOfMeasure uom;
 
+    public Ingredient() {
+    }
+
+    public Ingredient(String description, BigDecimal amount, Recipe recipe, UnitOfMeasure uom) {
+        this.description = description;
+        this.amount = amount;
+        this.recipe = recipe;
+        this.uom = uom;
+    }
+
     public Long getId() {
         return id;
     }
@@ -49,5 +59,15 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", amount=" + amount +
+                ", uom=" + uom +
+                '}';
     }
 }

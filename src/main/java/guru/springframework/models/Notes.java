@@ -38,4 +38,12 @@ public class Notes {
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
     }
+
+    @Override
+    public String toString() {
+        return "Notes{" +
+                "id=" + id +
+                ", recipeNotes='" + recipeNotes + '\'' +
+                '}';
+    }
 }
