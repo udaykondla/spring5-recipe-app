@@ -1,7 +1,11 @@
 package guru.springframework.models;
 
+import lombok.*;
+
 import javax.persistence.*;
 
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
 
@@ -15,35 +19,4 @@ public class Notes {
     @OneToOne
     private Recipe recipe;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getRecipeNotes() {
-        return recipeNotes;
-    }
-
-    public void setRecipeNotes(String recipeNotes) {
-        this.recipeNotes = recipeNotes;
-    }
-
-    public Recipe getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Recipe recipe) {
-        this.recipe = recipe;
-    }
-
-    @Override
-    public String toString() {
-        return "Notes{" +
-                "id=" + id +
-                ", recipeNotes='" + recipeNotes + '\'' +
-                '}';
-    }
 }

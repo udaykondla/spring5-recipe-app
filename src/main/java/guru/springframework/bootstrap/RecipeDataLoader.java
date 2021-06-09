@@ -4,6 +4,7 @@ import guru.springframework.models.*;
 import guru.springframework.repositories.CategoryRepository;
 import guru.springframework.repositories.RecipeRepository;
 import guru.springframework.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Component
+@Slf4j
 public class RecipeDataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
     private final RecipeRepository rr;
@@ -29,7 +31,7 @@ public class RecipeDataLoader implements ApplicationListener<ContextRefreshedEve
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
-        System.out.println("Calling getRecipes method");
+        log.debug("Calling getRecipes method");
         rr.saveAll(getRecipes());
     }
 
@@ -70,7 +72,7 @@ public class RecipeDataLoader implements ApplicationListener<ContextRefreshedEve
             //throw new RuntimeException("Mexican category not found");
             Category mexCategory = new Category();
             mexCategory.setDescription("mexican");
-            System.out.println("saving new mexican category");
+            log.debug("saving new mexican category");
             cr.save(mexCategory);
             mexicanCategory = cr.findByDescription("mexican");
         }
@@ -120,8 +122,8 @@ public class RecipeDataLoader implements ApplicationListener<ContextRefreshedEve
 
         tacoRecipe.setNotes(tacoNotes);
 
-        System.out.println("========printing taco recipe");
-        System.out.println(tacoRecipe);
+        log.debug("========printing taco recipe");
+        log.debug("taco recipe === {}", tacoRecipe);
         rr.save(tacoRecipe);
 
         return recipes;

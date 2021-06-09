@@ -1,16 +1,12 @@
 package guru.springframework.controllers;
 
-import guru.springframework.models.Category;
-import guru.springframework.models.UnitOfMeasure;
-import guru.springframework.repositories.CategoryRepository;
-import guru.springframework.repositories.UnitOfMeasureRepository;
 import guru.springframework.services.RecipeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.Optional;
-
+@Slf4j
 @Controller
 public class IndexController {
 
@@ -35,7 +31,7 @@ public class IndexController {
         System.out.println("Category: " + categoryOptional.get().getId());
         System.out.println("Unit of measure: " + unitOfMeasureOptional.get().getId());
         return "index";*/
-
+    log.debug("index page called");
         model.addAttribute("recipes", recipeService.getRecipes());
 
         return "index";
